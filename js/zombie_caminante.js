@@ -8,6 +8,7 @@ var ZombieCaminante = function(sprite, x, y, ancho, alto, velocidad, rangoMov) {
   necesarios */
   Enemigo.call(this, sprite, x, y, ancho, alto, velocidad, rangoMov);
 }
+
 /* Completamos la creacion del objeto asignando su prototipo y la funcion
 constructor para poder usarla con 'new' al crear nuevos Zombies Caminantes */
 ZombieCaminante.prototype = Object.create(Enemigo.prototype);
@@ -31,17 +32,44 @@ ZombieCaminante.prototype.mover = function() {
   velocidad lo que estamos haciendo es invertir su direccion.*/
   if ((this.x < this.rangoMov.desdeX) || (this.x > this.rangoMov.hastaX)){
     this.velocidad *= -1;
+    // todo el bloque que sigue hasta la proxima linea comentada tiene como objetivo
+    // definir hacia que lado se dirige cada zombie y dependiendo de la direccion poner 
+    // el sprite que le corresponda segun sea derecha o izquierda
+    if (this.x < this.rangoMov.desdeX) {
+      switch(this.sprite) {
+        case "imagenes/zombie1.png":
+        this.sprite = 'imagenes/zombie1_d.png';
+        break;
+        case "imagenes/zombie2.png":
+        this.sprite = 'imagenes/zombie2_d.png';
+        break;
+        case "imagenes/zombie3.png":
+        this.sprite = 'imagenes/zombie3_d.png';
+        break;
+        case "imagenes/zombie4.png":
+        this.sprite = 'imagenes/zombie4_d.png';
+        break;
+      }
+    } else {
+      switch(this.sprite) {
+        case "imagenes/zombie1_d.png":
+        this.sprite = 'imagenes/zombie1.png';
+        break;
+        case "imagenes/zombie2_d.png":
+        this.sprite = 'imagenes/zombie2.png';
+        break;
+        case "imagenes/zombie3_d.png":
+        this.sprite = 'imagenes/zombie3.png';
+        break;
+        case "imagenes/zombie4_d.png":
+        this.sprite = 'imagenes/zombie4.png';
+        break;
+      }	
+    }
+    // hasta acá el codigo que decide la imagen del zombie segun el sentido de su caminar.
   }
   // Si sobrepasa el rangoY, lo manda al centro entre ambos rangos
   if ((this.y < this.rangoMov.desdeY) || (this.y > this.rangoMov.hastaY)) {
     this.y = this.rangoMov.desdeY + (this.rangoMov.hastaY - this.rangoMov.desdeY)/2;
   }
 }
-
-/* El ataque lo toma de su prototipo Enemigo que ya implementa un metodo atacar
-haciendole perder 1 vida al jugador. Si se quiere modificar el valor de ataque
-del zombie caminante habra que reimplementar este metodo desde el objeto ZombieCaminante
-
-ZombieConductor.prototype.atacar = function(jugador) {
-  ...
-}*/

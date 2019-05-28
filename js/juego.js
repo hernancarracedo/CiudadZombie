@@ -35,7 +35,8 @@ var Juego = {
 	new Obstaculo('imagenes/bache.png', 800, 420, 30, 30, 1),	
 	new Obstaculo('imagenes/bache.png', 300, 480, 30, 30, 1),	
 	new Obstaculo('imagenes/bache.png', 180, 280, 30, 30, 1),	
-	new Obstaculo('imagenes/bache.png', 510, 130, 30, 30, 1)
+  new Obstaculo('imagenes/bache.png', 510, 130, 30, 30, 1),
+  new Obstaculo('imagenes/llegada.png', 760, 542, 125, 20, 0)
   ],
   /* Estos son los bordes con los que se puede chocar, por ejemplo, la vereda.
    Ya estan ubicados en sus lugares correspondientes. Ya aparecen en el mapa, ya
@@ -133,15 +134,20 @@ Juego.iniciarRecursos = function() {
     'imagenes/valla_horizontal.png',
     'imagenes/valla_vertical.png',
     'imagenes/zombie1.png',
+    'imagenes/zombie1_d.png',
     'imagenes/zombie2.png',
+    'imagenes/zombie2_d.png',	
     'imagenes/zombie3.png',
+    'imagenes/zombie3_d.png',	
     'imagenes/zombie4.png',
+    'imagenes/zombie4_d.png',	
     'imagenes/auto_rojo_abajo.png',
     'imagenes/auto_rojo_arriba.png',
     'imagenes/auto_rojo_derecha.png',
     'imagenes/auto_rojo_izquierda.png',
     'imagenes/auto_verde_abajo.png',
-    'imagenes/auto_verde_derecha.png'
+    'imagenes/auto_verde_derecha.png',
+    'imagenes/llegada.png'
   ]);
   Resources.onReady(this.comenzar.bind(Juego));
 };
@@ -238,8 +244,9 @@ Juego.dibujar = function() {
     Dibujante.dibujarRectangulo('red', x, 0, tamanio, 8);
   };
   
-  // acá le pido a dibujate que me dibuje la linea de llegada, con un metodo que no venia incluido pero lo agegué. Pampa.-
-  Dibujante.dibujarLlegada();
+  // acá le pido a dibujate que me dibuje la linea de llegada, con un metodo que no venia incluido pero lo agegué.
+  // Dibujante.dibujarLlegada();  <= FINALMENTE NO LLAMO ESTE METODO PORQUE LUEGO NO PODIA BORRAR LA LINEA DE LLEGADA AL FINALIZAR JUEGO.
+  
 };
 
 

@@ -39,23 +39,25 @@ var Dibujante = {
   },
  
   // Este método lo agrego para poder dibujar la llegada usando otro metodo (dibujarRectangulo()) que ya venia listo en Dibujante
+  /*  <= FINALMENTE NO UTILIZO ESTE METODO PORQUE LUEGO NO PODIA BORRAR LA LINEA DE LLEGADA AL FINALIZAR JUEGO.
   dibujarLlegada: function () { 
     let posCol = 760;
-	let posFila = 535;
-	let colorCuadroA = 'black'; 
-	let colorCuadroB = 'white';
-	let colorCuadroAux = '';
-	for(var i = 0; i <= 24; i++){
-		for(var j = 0; j <= 4; j++){
-			this.dibujarRectangulo(colorCuadroA, posCol, posFila, 5, 5);
-			posFila = posFila + 5;
-			colorCuadroAux = colorCuadroA;
-			colorCuadroA = colorCuadroB;
-			colorCuadroB = colorCuadroAux;
-		}
-		posFila = 535;
-		posCol = posCol + 5;
-	}
+    let posFila = 535;
+    let colorCuadroA = 'black'; 
+    let colorCuadroB = 'white';
+    let colorCuadroAux = '';
+    for(var i = 0; i <= 24; i++){
+      for(var j = 0; j <= 4; j++){
+        this.dibujarRectangulo(colorCuadroA, posCol, posFila, 5, 5);
+        posFila = posFila + 5;
+        colorCuadroAux = colorCuadroA;
+        colorCuadroA = colorCuadroB;
+        colorCuadroB = colorCuadroAux;
+      }
+      posFila = 535;
+      posCol = posCol + 5;
+    }
   }
+  */
   
 }
